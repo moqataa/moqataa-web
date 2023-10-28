@@ -35,9 +35,9 @@
                 <tr>
                     <th>Photo</th>
                     <th>Name</th>
-                    <th class="d-none d-md-table-cell">URL</th>
+<!--                    <th class="d-none d-md-table-cell">URL</th>-->
                     <th class="d-none d-md-table-cell">Category</th>
-                    <th class="d-none d-md-table-cell">Country</th>
+<!--                    <th class="d-none d-md-table-cell">Country</th>-->
                     <th>Reason</th>
                     <th class="d-none d-md-table-cell">Reason URL</th>
                 </tr>
@@ -53,7 +53,6 @@
 <script>
     let csvData = '';
 
-    // Fetch the CSV data from the provided URL
     fetch('https://raw.githubusercontent.com/moqataa-root/boycott-data/main/companies.csv')
         .then(response => response.text())
         .then(data => {
@@ -90,9 +89,9 @@
                 html += `<tr>
                     <td><img src="${parsedData[i]['photo']}" alt="${parsedData[i]['name']}'s photo" class="rounded-circle" width="50"></td>
                     <td>${parsedData[i]['name']}</td>
-                    <td class="d-none d-md-table-cell"><a href="${parsedData[i]['url']}" target="_blank">${parsedData[i]['url']}</a></td>
+<!--                    <td class="d-none d-md-table-cell"><a href="${parsedData[i]['url']}" target="_blank">${parsedData[i]['url']}</a></td>-->
                     <td class="d-none d-md-table-cell">${parsedData[i]['category']}</td>
-                    <td class="d-none d-md-table-cell">${parsedData[i]['country']}</td>
+<!--                    <td class="d-none d-md-table-cell">${parsedData[i]['country']}</td>-->
                     <td>${parsedData[i]['reason']}</td>
                     <td class="d-none d-md-table-cell"><a href="${parsedData[i]['reason_url']}" target="_blank">${parsedData[i]['reason_url']}</a></td>
                 </tr>`;
