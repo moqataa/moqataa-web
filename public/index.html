@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV Search</title>
-    <!-- Bootstrap CSS -->
+    <title>Moqataa (Boycott) - مقاطعة</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light py-5">
 
 <div class="container">
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-8 text-center">
+            <img src="/assets/moqataa.png" alt="Site Logo" class="mb-2">
+            <h1>Moqataa (Boycott) - مقاطعة</h1>
+            <p class="text-muted">Do your part by boycotting companies that support Israel and their continued oppression against the Palestinian people.</p>
+            <p class="text-muted">قم بدورك بمقاطعة الشركات التي تدعم إسرائيل وقمعها المستمر ضد الشعب الفلسطيني.</p>
+        </div>
+    </div>
+
     <div class="row justify-content-center">
         <div class="col-md-10">
             <input type="text" id="searchInput" class="form-control" placeholder="Search companies..." oninput="search()">
         </div>
     </div>
+
     <div class="row justify-content-center mt-3">
         <div class="col-md-10">
             <table id="results" class="table table-striped">
@@ -89,8 +102,6 @@
     }
 </script>
 
-<!-- Optional Bootstrap JS (with Popper.js for tooltips) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
