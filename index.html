@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Search</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-5">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search companies..." oninput="search()">
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-10">
+            <table id="results" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>URL</th>
+                    <th>Category</th>
+                    <th>Country</th>
+                    <th>Reason</th>
+                    <th>Reason URL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Results will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    let csvData = '';
+
+    // Fetch the CSV data from the provided URL
+    fetch('https://raw.githubusercontent.com/moqataa-root/boycott-data/main/companies.csv')
+        .then(response => response.text())
+        .then(data => {
+            csvData = data;
+            search(); // Call search after fetching to display all results initially
+        });
+
+    function parseCSV(data) {
+        const lines = data.trim().split("\n");
+        const headers = lines[0].split(",");
+        const results = [];
+
+        for(let i = 1; i < lines.length; i++) {
+            const obj = {};
+            const currentLine = lines[i].split(",");
+
+            for(let j = 0; j < headers.length; j++) {
+                obj[headers[j].trim()] = currentLine[j].trim();
+            }
+            results.push(obj);
+        }
+        return results;
+    }
+
+    function search() {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const parsedData = parseCSV(csvData);
+        let html = '';
+
+        for(let i = 0; i < parsedData.length; i++) {
+            const dataString = JSON.stringify(parsedData[i]).toLowerCase();
+
+            if (dataString.includes(searchTerm)) {
+                html += `<tr>
+                    <td><img src="${parsedData[i]['photo']}" alt="${parsedData[i]['name']}'s photo" class="rounded-circle" width="50"></td>
+                    <td>${parsedData[i]['name']}</td>
+                    <td><a href="${parsedData[i]['url']}" target="_blank">${parsedData[i]['url']}</a></td>
+                    <td>${parsedData[i]['category']}</td>
+                    <td>${parsedData[i]['country']}</td>
+                    <td>${parsedData[i]['reason']}</td>
+                    <td><a href="${parsedData[i]['reason_url']}" target="_blank">${parsedData[i]['reason_url']}</a></td>
+                </tr>`;
+            }
+        }
+        document.querySelector("#results tbody").innerHTML = html;
+    }
+</script>
+
+<!-- Optional Bootstrap JS (with Popper.js for tooltips) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
