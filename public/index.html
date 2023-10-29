@@ -73,9 +73,7 @@
                 <tr>
                     <th>Photo</th>
                     <th>Name</th>
-<!--                    <th class="d-none d-md-table-cell">URL</th>-->
                     <th class="d-none d-md-table-cell">Category</th>
-<!--                    <th class="d-none d-md-table-cell">Country</th>-->
                     <th>Reason</th>
                     <th class="d-none d-md-table-cell">Source</th>
                 </tr>
@@ -102,7 +100,6 @@
         const lines = data.trim().split("\n");
         const headers = lines[0].split(",");
         const results = [];
-
         for(let i = 1; i < lines.length; i++) {
             const obj = {};
             const currentLine = lines[i].split(",");
@@ -127,11 +124,9 @@
                 html += `<tr>
                     <td><img src="${parsedData[i]['photo']}" alt="${parsedData[i]['name']}'s photo" class="rounded-circle" width="50"></td>
                     <td>${parsedData[i]['name']}</td>
-<!--                    <td class="d-none d-md-table-cell"><a href="${parsedData[i]['url']}" target="_blank">${parsedData[i]['url']}</a></td>-->
                     <td class="d-none d-md-table-cell">${parsedData[i]['category']}</td>
-<!--                    <td class="d-none d-md-table-cell">${parsedData[i]['country']}</td>-->
                     <td>${parsedData[i]['reason']}</td>
-                    <td class="d-none d-md-table-cell"><a href="${parsedData[i]['source']}" target="_blank">URL</a></td>
+                    <td class="d-none d-md-table-cell"><a href="${parsedData[i]['source']}" target="_blank">${parsedData[i]['source']}</a></td>
                 </tr>`;
             }
         }
