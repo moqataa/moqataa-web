@@ -30,8 +30,8 @@
 
     <div class="row">
         <div class="text-center">
-            <button type="button" class="btn btn-primary row mb-4" data-bs-toggle="modal" data-bs-target="#suggest">
-                Company missing? Add it here - اضف شركة مفقودة هنا
+            <button type="button" class="btn btn-primary row mb-4" style="background-color: #5D8D84" data-bs-toggle="modal" data-bs-target="#suggest">
+                Suggestion company - اضف شركة
             </button>
         </div>
     </div>
@@ -40,23 +40,21 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Suggest website</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Suggest company</h5>
                 </div>
                 <div class="modal-body">
                     <form name="contact" netlify>
                         <div class="form-group">
-                                <label>Details</label>
-                                <textarea type="text" name="details"></textarea>
+                            <div class="mb-3">
+                                <label for="websiteSuggestArea" class="form-label">Please provide company name and why</label>
+                                <textarea class="form-control" id="websiteSuggestArea" rows="3"></textarea>
+                            </div>
                         </div>
                         <button type="submit">Send</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
