@@ -86,7 +86,7 @@
                     <th>Company</th>
                     <th class="d-none d-md-table-cell">Category</th>
                     <th>Reason</th>
-                    <th class="d-none d-md-table-cell">Source</th>
+<!--                    <th class="d-none d-md-table-cell">Source</th>-->
                 </tr>
                 </thead>
                 <tbody>
@@ -135,8 +135,8 @@
                     <td><img src="${parsedData[i]['photo']}" alt="${parsedData[i]['name']}'s photo" class="rounded-circle" width="50"></td>
                     <td>${parsedData[i]['name']}</td>
                     <td class="d-none d-md-table-cell">${parsedData[i]['category']}</td>
-                    <td>${parsedData[i]['reason']}</td>
-                    <td class="d-none d-md-table-cell"><a href="${parsedData[i]['source']}" target="_blank">Source</a></td>
+                    <td><a href="${parsedData[i]['source']}" target="_blank">${parsedData[i]['reason']}</a></td>
+<!--                    <td class="d-none d-md-table-cell"><a href="${parsedData[i]['source']}" target="_blank">Source</a></td>-->
                 </tr>`;
             }
         }
